@@ -1,27 +1,13 @@
 
-//console.log(dados)
+let input = document.getElementById("campo-pesquisa")
 
-/*
+let button = document.getElementById("meuBotao")
 
-let resultados = ""
-
-//Para cada result dentro da lista
-for(let dado of dados){
-    resultados += `
-    <div class="item-resultado">
-    
-    <h2><a href="#">${dado.titulo}</a></h2>
-    <p class="descricao-meta">${dado.descricao}
-    </p>
-    <p class="descricao-meta">Album: ${dado.album}</p>
-    <a href="${dado.link}" target="blank">Mais informações</a>
-    </div>
-    `
-    }
-
-    section.innerHTML = resultados;
-
-*/
+input.addEventListener('keypress', function(event){
+  if (event.key === 'Enter') {
+    button.click();
+  }
+});
 
     function pesquisar() {
         /**
@@ -39,15 +25,16 @@ for(let dado of dados){
          * **Retorno:**
          *  - Não retorna nenhum valor, mas modifica o DOM inserindo os elementos HTML.
          */
-      
-        let section = document.getElementById("resultados-pesquisa"); // Obtém a seção onde os resultados serão inseridos
-        let campoPesquisa = document.getElementById("campo-pesquisa").value;
         
+      
+        let campoPesquisa = document.getElementById("campo-pesquisa").value;
+        let section = document.getElementById("resultados-pesquisa"); // Obtém a seção onde os resultados serão inseridos
+
         let resultados = "";
         let titulo = "";
         let descricao = ""; 
         let album = "";
-
+        
         if(!campoPesquisa || isOnlySpaces(campoPesquisa)){
           section.innerHTML = "<p>Nada foi encontrado</p>"
           return
@@ -82,7 +69,7 @@ for(let dado of dados){
         );
   
         if(!resultados){
-          resultados = "<p>Nada foi encontrado. Você não buscou por musicas</p>"
+          resultados = "<p>Sem músicas ou albuns correspondentes...</p>"
         }
 
           section.innerHTML= resultados;
@@ -95,3 +82,5 @@ for(let dado of dados){
       // \s representa qualquer caractere de espaço em branco (espao, tabs etc)
       // O método test() retorna true se a string corresponder a expressão regular
     }
+
+    
