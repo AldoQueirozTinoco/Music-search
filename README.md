@@ -4,3 +4,5 @@
 
 <h2>Como funciona?</h2>
 <p>O usuário digita no campo de pesquisa o nome de uma música ou album dos beatles e são listados todos os resultados correspondentes</p>
+
+<p>Link para o site: https://musicas-beatles.vercel.app/</p>
